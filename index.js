@@ -1,7 +1,10 @@
 const fs = require('fs');
 const util = require("util");
 const inquirer = require('inquirer');
-const writeFileSync = util.promisify(fs.writeFile);
+// const writeFileSync = util.promisify(fs.writeFile);
+
+const appendFile = util.promisify(fs.appendFile);
+
 
 const employeePrompt = [
     {
@@ -89,7 +92,8 @@ function userPrompt() {
         inquirer.prompt(engineerQ).then(function(response) {
             console.log(response)
             html = generateHTML(answers, response);
-            return writeFileSync("index.html", html);
+            // return writeFileSync("index.html", html);
+            return appendFile("index.html", html)
         })
     };
     if (answers.employee === 'Intern') {
