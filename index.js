@@ -101,7 +101,7 @@ function userPrompt() {
         inquirer.prompt(internQ).then(function(response) {
             console.log(response);
             html = generateHTML(answers, response);
-            return writeFileSync("index.html", html);
+            return appendFile("index.html", html)
         })
     };
     if (answers.employee === 'Manager') {
@@ -109,7 +109,7 @@ function userPrompt() {
         inquirer.prompt(managerQ).then(function(response) {
             console.log(response)
             html = generateHTML(answers, response);
-            return writeFileSync("index.html", html);
+            return appendFile("index.html", html)
         })
     };
     if (answers.employee === 'I don\'t wan\'t to add any more team members') {
@@ -125,37 +125,25 @@ function userPrompt() {
 
 function generateHTML(answers, response) {
   return `
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="jumbotron jumbotron-fluid"> HELLO! </div>
+  
+<div class="col-sm-4">
+  <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        <h5>${response.name}</h5>
+        <h5>${answers.employee}</h5>
+      </div>
 
-    <div class="card" style="width: 18rem;">
-        <div class="card-header">
-            <h5>${response.name}</h5>
-            <h5>${answers.employee}</h5>
-        </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${response.id}</li>
           <li class="list-group-item">Email: ${response.email}</li>
           <li class="list-group-item">Git UserName: ${response.git}</li>
           <li class="list-group-item">Office #: ${response.office}</li>
           <li class="list-group-item">School: ${response.school}</li>
-
         </ul>
-    </div>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-</body>
-</html>`;
+  </div>
+</div>
+`;
 };
 
 userPrompt();
