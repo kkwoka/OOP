@@ -1,0 +1,29 @@
+{
+  "name": "oop",
+  "version": "1.0.0",
+  "description": "Create employee team and test code",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "inquirer": "^7.0.4",
+    "jest": "^25.1.0",
+    "util": "^0.12.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkwoka/OOP.git"
+  },
+  "author": "kkwoka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kkwoka/OOP/issues"
+  },
+  "homepage": "https://github.com/kkwoka/OOP#readme"
+}
