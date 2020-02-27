@@ -1,4 +1,4 @@
-function intern (info){
+function intern(info){
     return `
     <div class="card employee-card">
         <div class="card-header bg-warning">
