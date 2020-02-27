@@ -125,34 +125,21 @@ function employeePrompt() {
         // if select Engingeer, call Eningeer prompt
         if (answers.employee === 'Engineer') {
             addEngineer();
-            // inquirer.prompt(engineerQ).then(function(response) {
-            //     console.log(response)
-            //     html = generateHTML(answers, response);
-            //     employeePrompt();
-            // });
         }
 
         // else if select Intern, call intern prompt
         else if (answers.employee === 'Intern') {
             addIntern();
-
-            // inquirer.prompt(internQ).then(function(response) {
-            //     console.log(response);
-            //     html = generateHTML(answers, response);
-            // })
         }
         
         // else 
         else if (answers.employee === 'I don\'t wan\'t to add any more team members') {
             generateHTML();
         }
-    
-        // if (answers.employee != 'Engineer', 'Intern', 'I don\'t wan\'t to add any more team members') {
-        //     listPrompt();
-        // }
     });
 }
 
+// run through team array to generate html based on who exactly is on the team
 function generateHTML() {
     console.log(team)
     let html = "";
@@ -175,147 +162,5 @@ function generateHTML() {
         })
     }
 }
-// ===================================================
-// call manager prompt
+
 addManager();
-// class list prompt
-    // if select Engingeer, call Eningeer prompt
-    // else if select Intern, call intern prompt
-    // else generate html
-// inquirer Engineer - name, id, email, git ? . then() call list prompt
-// inquirer Intern - name, id, email, school ? . then() call list prompt
-// inquirer Manager - name, id, email, office ? . then() call list prompt
-// inquirer Engineer - name, id, email, git ? . then() call list prompt
-// anyone else on the team?
-// inquirer list [engineer, intern, no one else]
-// ===================================================
-
-
-
-// const writeFileSync = util.promisify(fs.writeFile);
-// const appendFile = util.promisify(fs.appendFile);
-// let html = [];
-
-
-// Manager prompt:
-// function managerPrompt() {
-//     return inquirer.prompt(managerQ).then(function(answers) {
-//         html = generateHTML(answers);
-
-//         // html.push(answers);
-//         listPrompt();
-//     });
-// }
-
-
-
-// const managerEMP = new Manager();
-// console.log(managerEMP.name);
-
-
-// function userPrompt() {
-//   return inquirer.prompt(employeePrompt).then(function(answers) {
-      
-//     if (answers.employee === 'Engineer') {
-//         inquirer.prompt(engineerQ).then(function(response) {
-//             console.log(response)
-//             html = generateHTML(answers, response);
-//             // return writeFileSync("index.html", html);
-//             return appendFile("index.html", html)
-//         })
-//     };
-//     if (answers.employee === 'Intern') {
-//         inquirer.prompt(internQ).then(function(response) {
-//             console.log(response);
-//             html = generateHTML(answers, response);
-//             return appendFile("index.html", html)
-//         })
-//     };
-//     if (answers.employee === 'Manager') {
-//         inquirer.prompt(managerQ).then(function(response) {
-//             console.log(response)
-//             html = generateHTML(answers, response);
-//             return appendFile("index.html", html)
-//         })
-//     };
-//     if (answers.employee === 'I don\'t wan\'t to add any more team members') {
-//         console.log("fucckkkk")
-//         return;
-//     };
-//     // html = generateHTML(response);
-//     // return writeFileSync("index.html", html);
-//   }).catch(function(err) {
-//     console.log(err);
-//   });
-// };
-
-// function generateHTML(answers, response, stringHTML) {
-//     if (answers.employee === 'Engineer') {
-//         return `
-//             <div class="col-sm-4">
-//             <div class="card" style="width: 18rem;">
-//                 <div class="card-header">
-//                     <h5>${response.name}</h5>
-//                     <h5><i class="fas fa-glasses"></i>${answers.employee}</h5>
-//                 </div>
-//                     <ul class="list-group list-group-flush">
-//                         <li class="list-group-item">ID: ${response.id}</li>
-//                         <li class="list-group-item">Email: ${response.email}</li>
-//                         <li class="list-group-item">Git UserName: ${response.git}</li>
-//                     </ul>
-//             </div>
-//             </div>
-//             `;
-//     }
-//     if (answers.employee === 'Intern') {
-//         return `
-//         <div class="col-sm-4">
-//           <div class="card" style="width: 18rem;">
-//               <div class="card-header">
-//                 <h5>${response.name}</h5>
-//                 <h5><i class="fas fa-user-graduate"></i>${answers.employee}</h5>
-//               </div>
-//                 <ul class="list-group list-group-flush">
-//                   <li class="list-group-item">ID: ${response.id}</li>
-//                   <li class="list-group-item">Email: ${response.email}</li>
-//                   <li class="list-group-item">School: ${response.school}</li>
-//                 </ul>
-//           </div>
-//         </div>
-//         `;
-//     }
-//     if (answers.employee === 'Manager') {
-//         return `
-//         <div class="col-sm-4">
-//           <div class="card" style="width: 18rem;">
-//               <div class="card-header">
-//                 <h5>${response.name}</h5>
-//                 <h5><i class="fas fa-mug-hot"></i>${answers.employee}</h5>
-//               </div>
-//                 <ul class="list-group list-group-flush">
-//                   <li class="list-group-item">ID: ${response.id}</li>
-//                   <li class="list-group-item">Email: ${response.email}</li>
-//                   <li class="list-group-item">Office #: ${response.office}</li>
-//                 </ul>
-//           </div>
-//         </div>
-//         `;
-//     }
-// };
-
-// userPrompt();
-
-// call Manager Prompt:
-// managerPrompt();
-
-// call list prompt:
-// listPrompt();
-
-
-// call manager prompt
-// call list prompt (witout manager, can only have one manager on team)
-//      if select Engineer, [.(then)] call Engineer prompt
-//      else/if select Intern, call Intern prompt
-//      else select "no one else on team", generate HTML
-
-// in .then of each inquirer(engineer, intern), call list prompt AND create objects for that inquirer so that you can inject that object into the generateHTML() function
